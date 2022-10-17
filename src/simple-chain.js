@@ -17,6 +17,7 @@ return this.chain.length
   },
   removeLink(position) {
     if (typeof position != 'number'|| position < 1 || position >this.chain.length ) {
+      this.chain = []
       throw Error("You can't remove incorrect link!"); 
     }
 this.chain.splice(position - 1, 1)
@@ -27,8 +28,9 @@ return this
   return this
   },
   finishChain() {
-  this.chain = this.chain.join('~~')
-    return this.chain
+    result = this.chain.join('~~')
+  this.chain = []
+    return result
   }
 };
 

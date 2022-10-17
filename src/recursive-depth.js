@@ -16,23 +16,13 @@ class DepthCalculator {
 
   calculateDepth(arr) {
     let max = 0
-     let count = 1
-     function deepCount(a) {
-       for (const el of a) {
-         if (Array.isArray(el)) {
-           count ++; 
-           deepCount(el)
-         }
-       }     
-       max = Math.max(max, count)
-     }
      for (let element of arr) {
        if (Array.isArray(element)) {
-         count = 2
-         deepCount(element)
+        let count = this.calculateDepth(element);
+         max = Math.max(max, count)
        }
      }
-         return max
+         return max + 1
        }
 }
 
