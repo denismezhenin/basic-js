@@ -22,7 +22,9 @@ function renameFiles(names) {
     if (!result.includes(name)) {
       result.push(name);
     } else {
-      while (result.includes(`${name}(${i})`)) i++;
+      while (result.includes(`${name}(${i})`)) {
+        i++;
+      }
       result.push(`${name}(${i})`);
     }
   })
